@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #names {
+        display: flex;
+        gap: 12px;
+      }
+      .item {
+        padding: 12px;
+        width: 150px;
+        height: 150px;
+        border: 1px solid silver;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-transform: capitalize;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="names"></div>
+  </body>
+</html>
+
+<script>
+  const userNames = ["rahul", "ankesh", "mitesh", "tarun", "gopal"];
+
+  /* const parentContainer = document.createElement("div")
+  parentContainer.id = "names"
+  document.body.appendChild(parentContainer) */
+
+  const namesContainer = document.getElementById("names");
+  for (let i = 0; i < userNames.length; i++) {
+    //const userName = userNames[i];
+    const nameElem = document.createElement("div");
+    nameElem.id = "item-" + i;
+    nameElem.textContent = userNames[i];
+    namesContainer.appendChild(nameElem);
+  }
+
+  for (let k = 0; k < userNames.length; k++) {
+    const nestedContainer = document.getElementById("item-" + k);
+    for (let i = 0; i < userNames.length; i++) {
+      //const replicateUser = userNames[i];
+      const replicateNameElem = document.createElement("span");
+      replicateNameElem.className = "nested-item";
+      replicateNameElem.textContent = userNames[i];
+      nestedContainer.appendChild(replicateNameElem);
+    }
+  }
+</script>
