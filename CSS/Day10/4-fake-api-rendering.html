@@ -34,10 +34,13 @@
   const url = "https://fakestoreapi.com/products";
 
   let responseJSON;
+
   const productAPI = async () => {
     const response = await fetch(url);
     responseJSON = await response.json();
+    //fakeAPIResponse = await response.json();
     console.log(responseJSON);
+    //return fakeAPIResponse;
   };
   productAPI();
   /*const userAction = async () => {
