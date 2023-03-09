@@ -23,6 +23,52 @@
         flex-wrap: wrap;
         width: 30%;
         height: auto;
+        border-radius: 10px;
+        background-color: #f7f7f7;
+      }
+      .rating {
+        border: 1px solid silver;
+        padding: 8px;
+        background-color: green;
+        color: white;
+        font-weight: 600;
+        border-radius: 50%;
+        width: 25px;
+        font-size: 15px;
+      }
+      body {
+        font-family: ProximaNova, arial, "Helvetica Neue", sans-serif;
+      }
+      .product-title {
+        font-weight: 600;
+        background-color: #140101;
+        border-radius: 10px;
+        color: white;
+        padding: 5px;
+        font-size: 20px;
+      }
+      .description {
+        white-space: nowrap;
+        width: auto;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 15px;
+      }
+      button {
+        background-color: #5050c9;
+        padding: 10px;
+        border: none;
+        border-radius: 10px;
+        color: white;
+        font-weight: 800;
+      }
+      .price {
+        color: red;
+        font-weight: 700;
+      }
+      .products-css:hover {
+        transform: scale(1.2);
+        transition: transform 0.4s;
       }
     </style>
   </head>
@@ -202,21 +248,26 @@
     productMainContainer.className = "products-css";
 
     const title = document.createElement("p");
+    title.className = "product-title";
     const price = document.createElement("p");
+    price.className = "price";
     const description = document.createElement("p");
+    description.className = "description";
     const image = document.createElement("img");
     image.src = fakeAPIResponse[i].image;
     const rating = document.createElement("p");
-
+    rating.className = "rating";
+    const space = document.createElement("div");
     const addToCart = document.createElement("button");
     addToCart.className = "add-to-cart";
     //addToCart.type = "submit";
 
     title.textContent = fakeAPIResponse[i].title;
-    price.textContent = fakeAPIResponse[i].price;
+    price.textContent = "₹" + fakeAPIResponse[i].price;
     description.textContent = fakeAPIResponse[i].description;
     image.textContent = fakeAPIResponse[i].image;
     rating.textContent = fakeAPIResponse[i].rating.rate;
+    space.textContent = "";
 
     addToCart.textContent = "Add to cart";
 
@@ -236,6 +287,7 @@
     productMainContainer.appendChild(description);
     productMainContainer.appendChild(rating);
     productMainContainer.appendChild(addToCart);
+    productMainContainer.appendChild(space);
 
     productContainer.appendChild(productMainContainer);
   }
