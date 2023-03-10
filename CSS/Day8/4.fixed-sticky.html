@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Position:Fixed</title>
+    <style>
+      li {
+        padding: 10px;
+        border: 1px solid silver;
+      }
+      .absolute {
+        position: absolute;
+        background-color: blue;
+        left: 120px;
+      }
+      .fixed {
+        position: fixed;
+        background-color: red;
+        right: 20px;
+        bottom: 20px;
+      }
+      .fixed-2 {
+        position: fixed;
+        background-color: red;
+        left: 50px;
+        bottom: 20px;
+      }
+      .fixed-3 {
+        position: sticky;
+        background-color: red;
+        left: 50px;
+        top: 120px;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>a</li>
+      <li>b</li>
+      <li>c</li>
+      <li class="fixed-2">Fixed</li>
+      <li class="absolute">Absolute</li>
+      <li class="fixed">f</li>
+      <li>g</li>
+      <li>h</li>
+      <li>i</li>
+      <li>j</li>
+      <li>g</li>
+      <li>h</li>
+      <li>i</li>
+      <li- class="fixed-3">Sticky</li->
+      <li>g</li>
+      <li>h</li>
+      <li>i</li>
+      <li>j</li>
+      <li>g</li>
+      <li>h</li>
+      <li>i</li>
+      <li>j</li>
+      <li>g</li>
+      <li>h</li>
+      <li>i</li>
+      <li>g</li>
+      <li>h</li>
+      <li>i</li>
+      <li>j</li>
+      <li>g</li>
+      <li>h</li>
+      <li>i</li>
+    </ul>
+  </body>
+</html>
