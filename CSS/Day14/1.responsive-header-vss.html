@@ -74,13 +74,23 @@
         list-style-type: none;
         border: 1px solid silver;
         right: 18px;
-        top: 50px;
+        top: 63px;
+        background-color: #ffeeee;
+        padding: 10px;
       }
       .mobile-menu {
         display: none;
       }
       .show-mobile-menu {
         display: block;
+      }
+      button {
+        padding: 7px;
+        border: 1px solid transparent;
+        background-color: #6565eb;
+        color: white;
+        font-weight: 700;
+        border-radius: 6px;
       }
 
       @media screen and (min-width: 769px) {
@@ -90,6 +100,7 @@
 
         .header-hamburger-menu {
           position: relative;
+          display: none;
         }
       }
     </style>
@@ -115,7 +126,6 @@
         <span class="material-symbols-outlined" onclick="showHamNav()">
           menu
         </span>
-        <span class="material-symbols-outlined"> menu_open </span>
         <div id="toggle-div" class="mobile-menu">
           <ul class="hamburger-nav">
             <li>Menu</li>
