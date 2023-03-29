@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css"
+    />
+
+    <style>
+      .search-container {
+        width: 8px;
+        height: 8px;
+        border-radius: 50px;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 16px 28px;
+        gap: 24px;
+        cursor: pointer;
+        transition: width 500ms cubic-bezier(0.5, -0.3, 0.5, 1);
+        overflow: hidden;
+      }
+      .search-container.active {
+        width: 255px;
+        justify-content: flex-start;
+        cursor: default;
+      }
+      #search-right-aside-option {
+        display: none;
+        outline: none;
+        border: none;
+        font-size: 16px;
+        background-color: transparent;
+      }
+      i.fa-times {
+        display: none;
+        margin-left: auto;
+        cursor: pointer;
+        width: 10px;
+      }
+      .search-container.active > :is(i, #search-right-aside-option) {
+        display: block;
+      }
+      body {
+        background-color: violet;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="search-container">
+      <li class="fa fa-search"></li>
+      <input
+        type="text"
+        name=""
+        id="search-right-aside-option"
+        class="search-input"
+        placeholder="Search.."
+      />
+      <li class="fa fa-times"></li>
+    </div>
+  </body>
+</html>
+<script>
+  const searchWrapper = document.querySelector(".search-container");
+  const closeBtn = document.querySelector(".fa-times");
+
+  searchWrapper.addEventListener("click", () => {
+    searchWrapper.classList.add("active");
+  });
+  closeBtn.addEventListener("click", (event) => {
+    event.stopPropagation();
+    searchWrapper.classList.remove("active");
+  });
+</script>
