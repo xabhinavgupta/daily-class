@@ -35,6 +35,19 @@ function GetPatterns() {
   }
 }
 
+function refresh(){
+window.location.reload();
+}
+
+function ImageContainer(name){
+  document.getElementById("logic").style.display = "hidden";
+  let img = document.getElementById("logic");
+  let imgCon = document.createElement("img");
+  imgCon.src = name;
+  imgCon.class = "image-css";
+  img.appendChild(imgCon);
+}
+
 function defaultCase() {
   document.getElementById("output").innerHTML =
     "Please enter a valid option.";
@@ -46,7 +59,9 @@ function patternA() {
   for (let i = 0; i < 11; i++) {
     output += i * 100 + " ";
   }
+  ImageContainer("./images/patternA.png");
   document.getElementById("output").innerHTML = output;
+
 }
 
 function patternB() {
@@ -54,6 +69,7 @@ function patternB() {
   for (let i = 0; i < 8; i++) {
     output += Math.pow(2, i) + " ";
   }
+  ImageContainer("./images/patternB.png");
   document.getElementById("output").innerHTML = output;
 }
 
@@ -62,6 +78,7 @@ function patternC() {
   for (let i = 0; i < 8; i++) {
     output += i * 2 + " ";
   }
+  ImageContainer("./images/patternC.png");
   document.getElementById("output").innerHTML = output;
 }
 
@@ -70,6 +87,7 @@ function patternD() {
   for (let i = 1; i <= 6; i++) {
     output += i * 3 + " ";
   }
+  ImageContainer("./images/patternD.png");
   document.getElementById("output").innerHTML = output;
 }
 
@@ -78,6 +96,7 @@ function patternE() {
   for (let i = 9; i >= 0; i--) {
     output += i + " ";
   }
+  ImageContainer("./images/patternE.png");
   document.getElementById("output").innerHTML = output;
 }
 
@@ -88,6 +107,7 @@ function patternF() {
       output += i + " ";
     }
   }
+  ImageContainer("./images/patternF.png");
   document.getElementById("output").innerHTML = output;
 }
 
@@ -98,5 +118,6 @@ function patternG() {
       output += j + " ";
     }
   }
+  ImageContainer("./images/patternG.png");
   document.getElementById("output").innerHTML = output;
 }
