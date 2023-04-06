@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Nested function example - Check console</h1>
+    <p>
+      Code/Execution phase : function apne aap m execution entity hota h jisme
+      creation and execution context banta h fir se. <br />
+      Har function apnea ap m execution context banata h. <br />
+      Call Stack – thread of execution. Sbse phle sbse bahar vala function RUN
+      hoga, then uske nested, lekin jb tk child function khatam ni honge tb tk
+      main function ka call stack khtm ni hoga.
+    </p>
+    <p>
+      Interview Question – Explain flow, scope, push, pop, stack concept <br />
+      Code run in stack and isko Code Thread of Execution bolte hain.
+    </p>
+    <p>
+      JavaScript ka main code start hota h to Anonymous se shuru hota h jo top
+      code ko execute krta h <br />
+      4.tryMe3 <br />
+      3.tryMe2 <br />
+      2.tryMe <br />
+      1.anonymous
+    </p>
+    <p>
+      Call stack is line a playground, jaise jaise hum code execute krre h vaise
+      vaise usko perform krra h, just like a container jiske andar sb kaam chlra
+      h. <br />
+      Code ka starting m koi Name ni hota isilie anonymous block banta h, jo
+      temp block hota h. Lekin vo execute Call Stack m hi ho rha h.
+    </p>
+  </body>
+</html>
+
+<script>
+  let a = 10;
+  const b = 20;
+
+  function tryMe() {
+    let a3 = 10;
+    function tryMe2() {
+      let a4 = 10;
+      function tryMe3() {
+        let a5 = 20;
+      }
+      tryMe3();
+    }
+    tryMe2();
+  }
+  tryMe();
+</script>
