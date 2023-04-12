@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM API - Browser</title>
+  </head>
+  <body id="bdy">
+    <div>DOM API is part of browser, not a part of API.</div>
+    <div id="item">Hello VSS</div>
+  </body>
+</html>
+<script>
+  const itemElem = document.getElementById("item");
+  console.log(itemElem.textContent);
+  itemElem.innerHTML =
+    "<h1>Good Morning</h1><h2>Good Evening</h2><h3>Good Afternoon</h3><h4>Good Night</h4>";
+</script>
