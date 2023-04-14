@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Form</title>
+    <style>
+      body {
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        padding-top: 20px;
+      }
+      input {
+        padding: 3px;
+        margin: 5px;
+        border: 1px solid silver;
+        border-radius: 5px;
+      }
+      select {
+        padding: 3px;
+        margin: 5px;
+        border-radius: 5px;
+        border: 1px solid silver;
+      }
+      button {
+        padding: 4px 15px;
+        margin: 5px;
+        border-radius: 5px;
+        border: 1px solid silver;
+        background-color: rgb(12, 102, 12);
+        color: white;
+        font-weight: 600;
+      }
+      input:focus {
+        border: 1px solid silver;
+        outline: none;
+      }
+      .setDisplay {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="setDisplay">
+      <div>
+        <div>
+          <input
+            type="text"
+            name="lableTxt"
+            id="labelTxt"
+            placeholder="Label"
+          />
+          <input
+            type="text"
+            name="placeholderTxt"
+            id="placeholderTxt"
+            placeholder="Placeholder"
+          />
+          <select name="dropdow" id="dropdown">
+            <option value="0">select</option>
+            <option value="1">Textbox</option>
+            <option value="2">Date</option>
+            <option value="3">Password</option>
+            <option value="4">Text area</option>
+            <option value="5">Checkbox</option>
+            <option value="6">Radio button</option>
+          </select>
+          <button onclick="addHTML()">Add</button>
+        </div>
+        <div>
+          <div id="jsonContainer"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  function addHTML() {
+    const LabelName = document.getElementById("labelTxt").value;
+    const placeholderName = document.getElementById("placeholderTxt").value;
+    const dropdownValue = document.getElementById("dropdown").value;
+
+    if (LabelName.length > 0 && placeholderName.length > 0) {
+      const mainContainer = document.getElementById("jsonContainer");
+      const DisplayLabel = document.createElement("p");
+      DisplayLabel.className = "label-class";
+      const DisplayInputField = document.createElement("input");
+      DisplayInputField.type = "";
+
+      if (dropdownValue === "1") {
+        DisplayInputField.type = "text";
+        DisplayInputField.placeholder = placeholderName;
+      }
+      if (dropdownValue === "2") {
+        DisplayInputField.type = "date";
+      }
+      if (dropdownValue === "3") {
+        DisplayInputField.type = "password";
+        DisplayInputField.placeholder = placeholderName;
+      }
+      if (dropdownValue === "4") {
+        DisplayInputField.type = "textarea";
+        DisplayInputField.placeholder = placeholderName;
+      }
+      if (dropdownValue === "5") {
+        DisplayInputField.type = "checkbox";
+      }
+      if (dropdownValue === "6") {
+        DisplayInputField.type = "radio";
+      }
+      DisplayLabel.textContent = LabelName;
+      mainContainer.appendChild(DisplayLabel);
+      mainContainer.appendChild(DisplayInputField);
+      document.getElementById("labelTxt").value = "";
+      document.getElementById("placeholderTxt").value = "";
+      document.getElementById("dropdown").value = "0";
+    }
+  }
+</script>

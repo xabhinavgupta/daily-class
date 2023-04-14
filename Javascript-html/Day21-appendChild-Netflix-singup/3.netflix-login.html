@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Netflix using JS</title>
+    <style>
+      body {
+        background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/f1c3c4eb-2fea-42c7-9ebd-1c093bd8a69d/9c9af369-7a8c-4c8f-8e4a-d6c9d655f713/IN-en-20230403-popsignuptwoweeks-perspective_alpha_website_small.jpg");
+      }
+      .main-cont {
+        padding: 20px;
+      }
+      #sign-up-div {
+        color: white;
+      }
+      .signup-main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-cont">
+      <div class="logo">
+        <img src="./netflix-logo.PNG" alt="Netflix" />
+      </div>
+      <div class="signup-main">
+        <div>
+          <div id="sign-up-div"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  const mainContainer = document.getElementById("sign-up-div");
+
+  const divForAll = document.createElement("div");
+  const divForAll2 = document.createElement("div");
+  const divForAll3 = document.createElement("div");
+  divForAll.className = "divForAll";
+
+  const emailInput = document.createElement("input");
+  emailInput.type = "email";
+  emailInput.placeholder = "Email or phone number";
+  divForAll.appendChild(emailInput);
+
+  const passwordInput = document.createElement("input");
+  passwordInput.type = "password";
+  passwordInput.placeholder = "Password";
+  divForAll2.appendChild(passwordInput);
+
+  const buttonElem = document.createElement("button");
+  buttonElem.type = "submit";
+  buttonElem.textContent = "Sign In";
+
+  const rememberBtn = document.createElement("input");
+  rememberBtn.type = "checkbox";
+
+  const textSpan = document.createElement("span");
+  textSpan.className = "span-css";
+  textSpan.textContent = "Remember me";
+
+  divForAll3.appendChild(rememberBtn);
+  divForAll3.appendChild(textSpan);
+
+  mainContainer.appendChild(divForAll);
+  mainContainer.appendChild(divForAll2);
+  mainContainer.appendChild(buttonElem);
+  mainContainer.appendChild(divForAll3);
+</script>
