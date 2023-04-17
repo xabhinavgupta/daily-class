@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      Sample: <br />
+      Input = AAAAAABBBBCCCD <br />
+      Output = 6A4B3C1D
+    </div>
+    <div>
+      <p>
+        Please enter input value: &nbsp;
+        <input type="text" name="countChar" id="countChar" />
+      </p>
+      <button onclick="countCharacter()">Count</button>
+      <p id="output"></p>
+    </div>
+  </body>
+</html>
+<script>
+  function countCharacter() {
+    let textVal = document.getElementById("countChar").value;
+
+    let output = "";
+    let count = 1;
+
+    for (let i = 0; i < textVal.length; i++) {
+      if (textVal[i] === textVal[i + 1]) {
+        count++;
+      } else {
+        output += count + textVal[i];
+        count = 1;
+      }
+    }
+    document.getElementById("output").textContent = output;
+    document.getElementById("countChar").value = "";
+  }
+</script>
