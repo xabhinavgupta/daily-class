@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+
+<script>
+  //console.log("Before", normalFunc, arrowFunc);
+
+  function normalFunc() {
+    console.log("I'm a normal function");
+  }
+
+  var f1 = function () {};
+
+  /* var arrowFunc = () => {
+    console.log("I'm an Arrow Function");
+  }; */
+
+  let arrowFunc = () => {
+    console.log("I'm an Arrow Function");
+  };
+
+  //console.log("After", normalFunc, arrowFunc);
+
+  function addOnlyNumbers() {
+    let numSumOut = 0;
+    for (let i = 0; i < arguments.length; i++) {
+      if (Number(arguments[i])) {
+        numSumOut += Number(arguments[i]);
+      }
+    }
+    console.log("Sum of numbers:", numSumOut);
+  }
+
+  //   console.log(
+  //     addOnlyNumbers(100, 490, "ankit", 50, null, 490, "30", 50, "", false)
+  //   );
+  let numSumOut = 0;
+  const arrFunction = (...restVar) => {
+    for (let i = 0; i < restVar.length; i++) {
+      if (Number(restVar[i])) {
+        numSumOut += Number(restVar[i]);
+      }
+    }
+
+    return numSumOut;
+  };
+  console.log(
+    arrFunction(100, 490, "ankit", 50, null, 490, "30", 50, "", false)
+  );
+</script>
