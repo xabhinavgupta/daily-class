@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    Print Anagram
+  </body>
+</html>
+<script>
+  function checkAnagram(inputA, inputB) {
+    if (inputA.length != inputB.length) {
+      return console.log("Inputs are not an Anagram.");
+    }
+    let count = 0;
+    let splitInputA = inputA.split(""); //india "i",
+    let splitInputB = inputB.split(""); // ndiia
+    for (let i = 0; i < splitInputA.length; i++) {
+      for (let j = 0; j < splitInputB.length; j++) {
+        if (splitInputA[i] === splitInputB[j]) {
+          splitInputB.splice(j, 1);
+          count++;
+          break; //
+        }
+      }
+    }
+    if (count === splitInputA.length) {
+      return "Anagram";
+    } else {
+      return "Not an Anagram";
+    }
+  }
+</script>
