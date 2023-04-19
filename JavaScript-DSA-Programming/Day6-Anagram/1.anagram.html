@@ -11,6 +11,7 @@
   </body>
 </html>
 <script>
+  //one way to do it
   function checkAnagram(inputA, inputB) {
     if (inputA.length != inputB.length) {
       return console.log("Inputs are not an Anagram.");
@@ -33,4 +34,89 @@
       return "Not an Anagram";
     }
   }
+  //2nd way
+  function isAnagram(a, b) {
+    // Check if both string has same length or not
+    if (a.length != b.length) {
+      return false;
+    }
+    // Creating a HashMap containing Character as Key and
+    // Integer as Value. We will be storing character as
+    // Key and count of character as Value.
+    let map = new Map();
+    // Loop over all character of first string and put in
+    // HashMap.
+    for (let i = 0; i < a.length; i++) {
+      // Check if HashMap already contain the current
+      // character or not
+      if (map.has(a[i])) {
+        // If contains then increase count by 1
+        map.set(a[i], map.get(a[i]) + 1);
+      } else {
+        // else set that character in map and set
+        // count to 1 as character is encountered
+        // first time
+        map.set(a[i], 1);
+      }
+    }
+    // Now similarly iterating for second string
+    for (let i = 0; i < b.length; i++) {
+      // Check if HashMap already contain the current
+      // character or not
+      if (map.has(b[i])) {
+        // If contains reduce count of that
+        // character by 1 to indicate that current
+        // character has been already counted as
+        // idea here is to check if in last count of
+        // all characters in last is zero which
+        // means all characters in String a are
+        // present in String b.
+        map.set(b[i], map.get(b[i]) - 1);
+      }
+    }
+    // Extract all keys of HashMap/map
+    let keys = map.keys();
+    // Loop over all keys and check if all keys are 0
+    // as it means that all the characters are present
+    // in equal count in both strings.
+    for (let key of keys) {
+      if (map.get(key) != 0) {
+        return false;
+      }
+    }
+    // Returning True as all keys are zero
+    return true;
+  }
+
+  // Driver code
+  let str1 = "geeksforgeeks";
+  let str2 = "forgeezsgeeks";
+
+  // Function call
+  if (isAnagram(str1, str2))
+    console.log("The two strings are" + " anagram of each other<br>");
+  else console.log("The two strings are not" + " anagram of each other<br>");
+
+  //3rd way
+  function check3rdAnagram(input1, input2) {
+    if (input1.length != input2.length) {
+      return console.log("Invalid input");
+    }
+    let charArr1 = input1.split("").sort().join("");
+    let chaArr2 = input2.split("").sort().join("");
+    if (charArr1 === chaArr2) {
+      return console.log("Strings are Anagram");
+    } else {
+      return console.log("Strings are not an Anagram");
+    }
+  }
+
+  //4th method
+  function isAnagram(str1, str2) {
+    const regex = new RegExp(`^${str1.split("").sort().join("")}$`);
+    return regex.test(str2.split("").sort().join(""));
+  }
+
+  console.log(isAnagram("listen", "silent")); // true
+  console.log(isAnagram("hello", "world")); // false
 </script>
