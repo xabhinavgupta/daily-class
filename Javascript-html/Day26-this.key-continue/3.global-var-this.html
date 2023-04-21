@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    - In an object method, this refers to the object. <br />
+    - Alone, this refers to the global object. <br />
+    - In a function, this refers to the global object. <br />
+    - In a function, in strict mode, this is undefined. <br />
+    - In an event, this refers to the element that received the event. <br />
+    - Methods like call(), apply(), and bind() can refer this to any object.
+    <br />
+  </body>
+</html>
+
+<script>
+  var checkName = "this working";
+  let name2 = "Abhinav";
+  console.log("this:", this);
+  const myThis = this;
+
+  console.log("myThis: ", myThis);
+
+  console.log("windows:", window);
+
+  console.log(this === window);
+  console.log(this === myThis);
+  console.log(this.checkName);
+  console.log(window.checkName);
+  console.log(this.name2);
+  console.log(window.name);
+</script>
