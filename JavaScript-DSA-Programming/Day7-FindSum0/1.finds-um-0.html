@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    To find a first pair from a number array whose sum is zero <br />
+    [1,2,3,4,-1,5,-1]
+  </body>
+</html>
+<script>
+  function findSum(arrNum) {
+    if (!Array.isArray(arrNum)) {
+      return console.log("Invalid input.");
+    }
+    for (let i = 0; i < arrNum.length; i++) {
+      for (let j = i + 1; j < arrNum.length; j++) {
+        if (arrNum[i] + arrNum[j] === 0) {
+          return console.log("The pair is:" + arrNum[i] + " & " + arrNum[j]);
+        }
+      }
+    }
+    return console.log("No pair found");
+  }
+
+  function findSum2(arrNum) {
+    if (!Array.isArray(arrNum)) {
+      return console.log("Invalid input.");
+    }
+    for (let i = 0; i < arrNum.length; i++) {
+      if (arrNum.includes(-arrNum[i])) {
+        return console.log("Pair found: " + arrNum[i] + " & " + -arrNum[i]);
+      }
+    }
+    return console.log("No pair found.");
+  }
+</script>
