@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Palindrome</title>
+  </head>
+  <body>
+    <h3>Question of the day - Find the following</h3>
+
+    - Largest Palindrome in a given string <br />
+    - All Palindrome in a string <br />
+    <br />
+
+    Ex - "Hello Mam, how are you. Madam, do you know racecar? <br />
+    1- "racecar" <br />
+    2- ["mam", "madam", "racecar"] <br />
+    <br />
+    Submission Guideliness <br />
+
+    - Via GitHub <br />
+    - Algo must be there with proper comments following JSDoc Guide <br />
+    - Submit till 12 Noon <br />
+  </body>
+</html>
+<script>
+  //method to find the largest Palindrome
+  //to find list of all the palindrom's
+  //taking input from a user
+  // return as a string and in the form of array
+  const findLargestPalindromeCount = (input) => {
+    if (
+      typeof input !== "string" ||
+      input.length === 0 ||
+      input.trim().length === 0
+    ) {
+      return "Please enter a valid word";
+    }
+
+    //converting the input sentence into lower case and
+    //then splitting them into word array
+    input = input.trim().toLowerCase();
+    const splitSentence = input.split(" ");
+    const ObjJSON = [{}];
+    for (let i = 0; i < splitSentence.length; i++) {
+      let word = splitSentence[i];
+      let count = 0;
+      for (let j = 0; j < word.length / 2; j++) {
+        if (word[j] !== word[word.length - j - 1]) {
+          break;
+        }
+        count++;
+      }
+      //finding all the palindrome's and its length
+      if (count >= word.length / 2) {
+        obj = {
+          textWord: word,
+          textCount: word.length,
+        };
+        //adding the palindrom details in an object
+        ObjJSON.push(obj);
+      }
+    }
+    if (ObjJSON.length === 1) {
+      return "No Palindrome found";
+    }
+    let largestWord = "",
+      palindromeWords = new Array(),
+      tempCount = 0;
+    //finding the largest palindrome and saving it in a variable
+    for (let k = 0; k < ObjJSON.length; k++) {
+      if (ObjJSON[k].textCount > tempCount) {
+        tempCount = ObjJSON[k].textCount;
+        largestWord = ObjJSON[k].textWord;
+      }
+      palindromeWords.push(ObjJSON[k].textWord);
+    }
+    palindromeWords.splice(0, 1);
+    return console.log({ largestWord, palindromeWords });
+  };
+  findLargestPalindromeCount(
+    "hello there, we have to findnif the largesttsegral palindrom ini a sentence"
+  );
+</script>
