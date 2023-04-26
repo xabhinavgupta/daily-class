@@ -41,8 +41,8 @@
     //converting the input sentence into lower case and
     //then splitting them into word array
     input = input.trim().toLowerCase();
-    const splitSentence = input.split(" ");
-    const ObjJSON = [{}];
+    const splitSentence = input.replace(/[&\\,.?'']/g, "").split(" ");
+    const ObjJSON = [];
     for (let i = 0; i < splitSentence.length; i++) {
       let word = splitSentence[i];
       let count = 0;
@@ -66,7 +66,7 @@
       return "No Palindrome found";
     }
     let largestWord = "",
-      palindromeWords = new Array(),
+      palindromeWords = [],
       tempCount = 0;
     //finding the largest palindrome and saving it in a variable
     for (let k = 0; k < ObjJSON.length; k++) {
@@ -76,9 +76,10 @@
       }
       palindromeWords.push(ObjJSON[k].textWord);
     }
-    palindromeWords.splice(0, 1);
+    //palindromeWords.splice(0, 1); // removing the first blank array
     return console.log({ largestWord, palindromeWords });
   };
+  //function calling
   findLargestPalindromeCount(
     "hello there, we have to findnif the largesttsegral palindrom ini a sentence"
   );
