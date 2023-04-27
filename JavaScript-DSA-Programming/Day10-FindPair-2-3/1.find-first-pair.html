@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    - To find a first pair from a number array whose sum is X <br />
+    X = 5 <br />
+    arr = [1,2,3,4,5,6] // 2,3 <br />
+    Please check console for output.
+  </body>
+</html>
+<script>
+  function findPair(arr, sum) {
+    let pairArr = [];
+    let tempCount = 100;
+    let tempPair = [];
+    for (let i = 0; i < arr.length; i++) {
+      for (j = i + 1; j < arr.length; j++) {
+        if (arr[i] + arr[j] === sum) {
+          obj = {
+            firstElem: arr[i],
+            secondElem: arr[j],
+            gapBetween: Math.abs(j - i),
+          };
+          pairArr.push(obj);
+        }
+      }
+    }
+    console.log(pairArr);
+    for (let i = 0; i < pairArr.length; i++) {
+      if (pairArr[i].gapBetween < tempCount) {
+        tempCount = pairArr[i].gapBetween;
+        tempPair = pairArr[i];
+      }
+    }
+    console.log(tempPair);
+    //console.log(Math.min(...Object.values(pairArr)));
+  }
+  function findThreePair(arr, sum) {
+    let pairArr = [];
+    let tempCount = 100;
+    let tempPair = [];
+    for (let i = 0; i < arr.length; i++) {
+      for (let j = i + 1; j < arr.length; j++) {
+        for (let k = j + 1; k < arr.length; k++) {
+          if (arr[i] + arr[j] + arr[k] === sum) {
+            obj = {
+              firstElem: arr[i],
+              secondElem: arr[j],
+              thirdElem: arr[k],
+              gapBetween: Math.abs(k - j - i),
+            };
+            pairArr.push(obj);
+          }
+        }
+      }
+    }
+    console.log(pairArr);
+    for (let i = 0; i < pairArr.length; i++) {
+      if (pairArr[i].gapBetween < tempCount) {
+        tempCount = pairArr[i].gapBetween;
+        tempPair = pairArr[i];
+      }
+    }
+    console.log(tempPair);
+  }
+</script>
