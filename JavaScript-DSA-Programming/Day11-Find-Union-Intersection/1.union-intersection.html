@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    Find union and intersection of two Array
+  </body>
+</html>
+<script>
+  //Using object
+
+  function findUnion(inputArray1, inputArray2) {
+    //convert array to object
+    const arrToObj1 = Object.assign({}, inputArray1);
+    const arrToObj2 = Object.assign({}, inputArray2);
+    console.log(Object.assign(arrToObj1, arrToObj2));
+    let resultArr = [];
+    //console.log(arrToObj1);
+    //console.log(arrToObj2);
+
+    //swap keys and values
+    // const swappedObj1 = Object.entries(arrToObj1).map(([key, value]) => [
+    //   value,
+    //   key,
+    // ]);
+    // console.log(Object.fromEntries(swappedObj1));
+    const swappedObj2 = Object.entries(arrToObj2).map(([key, value]) => [
+      value,
+      key,
+    ]);
+
+    //console.log(Object.assign(swappedObj1, swappedObj2));
+    // console.log(Object.fromEntries(swappedObj2));
+
+    // for (let i = 0; i < inputArray1.length; i++) {
+    //   if (!swappedObj2.hasOwnProperty(inputArray1[i])) {
+    //     resultArr.push(inputArray1[i]);
+    //   }
+    // }
+    //console.log(resultArr);
+  }
+
+  //Using Array
+  function unionArrays(arr1, arr2) {
+    let union = [];
+    for (let i = 0; i < arr1.length; i++) {
+      if (!union.includes(arr1[i])) {
+        union.push(arr1[i]);
+      }
+    }
+    for (let j = 0; j < arr2.length; j++) {
+      if (!union.includes(arr2[j])) {
+        union.push(arr2[j]);
+      }
+    }
+    console.log(union);
+  }
+  function intersecArrays(arr1, arr2) {
+    let intersection = [];
+    for (let i = 0; i < arr1.length; i++) {
+      if (arr2.includes(arr1[i])) {
+        intersection.push(arr1[i]);
+      }
+    }
+    console.log(intersection);
+  }
+
+  findUnion([1, 2, 3, 4, 5, 1, 7], [5, 6, 8, 1, 2]);
+  let arr1 = [1, 2, 3, 6, 8];
+  let arr2 = [2, 3, 4, 7, 8, 9];
+  unionArrays(arr1, arr2);
+  intersecArrays(arr1, arr2);
+
+  //   let inputArray = [1, 2, 4, 6, 8, 9];
+  //   let arrToObj =
+  //   let arrobj = Object.assign({}, inputArray);
+  //   console.log(arrobj);
+</script>
