@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  function uNion(arr, arr1) {
+    let obj = {};
+    let array1 = [];
+    let length = arr.length <= arr1.length ? arr1.length : arr.length;
+    for (let i = 0, j = 0, c = 0; i < length; i++, j++) {
+      if (!(arr[i] in obj) && i < arr.length) {
+        obj[arr[i]] = i;
+        array1[c] = arr[i];
+        c++;
+      }
+      if (!(arr1[j] in obj) && j < arr1.length) {
+        obj[arr[j]] = j;
+        array1[c] = arr1[j];
+        c++;
+      }
+    }
+    return array1;
+  }
+
+  function iNtersect(arr, arr1) {
+    let obj = {};
+    let obj1 = {};
+    let array1 = [];
+    for (let i = 0; i < arr.length; i++) {
+      if (!(arr[i] in obj)) {
+        obj = { 1: 1, 2: 2, 3: 3 };
+        obj[arr[i]] = arr[i];
+      }
+    }
+    for (let i = 0, c = 0; i < arr1.length; i++) {
+      if (arr1[i] in obj && !(arr1[i] in obj1)) {
+        obj1[arr1[i]] = arr1[i];
+        array1[c] = arr1[i];
+        c++;
+      }
+    }
+    return array1;
+  }
+</script>
