@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // CRUD
+
+  // Create
+  const profile = { name: "Amit", city: "Jabalpur", state: "MP" };
+
+  // Read
+  console.log(profile.name); // Amit
+  console.log(profile["name"]); // Amit
+  console.log(profile.details); // Undefined
+  //console.log(profile.details.something.letscheck); //Undefiend.undefined wil give Uncaught error - property not available
+
+  // Error handling - Optional Chaining
+  console.log(profile?.details?.something); // Max it will give is Undefined.
+  console.log([profile]);
+</script>
