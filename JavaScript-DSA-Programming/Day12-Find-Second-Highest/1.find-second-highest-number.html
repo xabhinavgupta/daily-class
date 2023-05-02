@@ -32,4 +32,24 @@
     arr.sort((a, b) => b - a);
     return arr[2];
   }
+
+  //nth number
+  function findNHighest(InputArr, n) {
+    let tempHigh = 0;
+    let secTempHigh = 0;
+    for (let j = o; j < n; j++) {
+      for (let i = 0; i < InputArr.length; i++) {
+        if (InputArr[i] > tempHigh) {
+          tempHigh = InputArr[i];
+        }
+      }
+      let findIndex = InputArr.indexOf(tempHigh);
+      InputArr.splice(findIndex, 1);
+      for (let i = 0; i < InputArr.length; i++) {
+        if (InputArr[i] > secTempHigh) {
+          secTempHigh = InputArr[i];
+        }
+      }
+    }
+  }
 </script>
