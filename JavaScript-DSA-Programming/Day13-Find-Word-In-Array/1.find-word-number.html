@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    To check whether particular word/number present in sentence or not using
+    inbuilt function <br />
+
+    String - Hello my name is Ankit <br />
+    Test Case - "funny" <br />
+    Output - False <br />
+
+    String - Hello my name is Ankit <br />
+    Test Case - "ankit" <br />
+    Output - false <br />
+  </body>
+</html>
+<script>
+  //1st way using object
+  const findWord = (arr, word) => {
+    const splitSentence = arr.replace(/[&\\,.?'']/g, "").split(" ");
+    if (splitSentence.length <= 0) {
+      console.log("Please pass valid sentence");
+      return;
+    }
+    let checkObj = {};
+    for (let i = 0; i < splitSentence.length + 1; i++) {
+      if (checkObj.hasOwnProperty(word)) {
+        //return true;
+        return console.log("Word found using Objects");
+      }
+      checkObj[splitSentence[i]] = i;
+    }
+    //return false;
+    return console.log("Word not found using Objects");
+  };
+  findWord("Hello friend, how are you, doing tOdAy", "tOdAy");
+
+  //2nd way using array comparison
+  const findWordUsingArr = (arr, word) => {
+    const splitSentence = arr.replace(/[&\\,.?'']/g, "").split(" ");
+    if (splitSentence.length <= 0) {
+      console.log("Please pass valid sentence");
+      return;
+    }
+    for (let i = 0; i < splitSentence.length; i++) {
+      if (splitSentence[i] === word) {
+        console.log("Word found using Array comaparison");
+        return true;
+      }
+    }
+    console.log("Word not found using Array comparison");
+    return false;
+  };
+  findWordUsingArr("Hello friend, how are you, doing tOdAy", "tOdAy");
+
+  //3rd way using inbuild function
+  const findWordUsingInBuild = (arr, word) => {
+    const splitSentence = arr.replace(/[&\\,.?'']/g, "").split(" ");
+    if (splitSentence.length <= 0) {
+      console.log("Please pass valid sentence");
+      return;
+    }
+    if (splitSentence.includes(word)) {
+      console.log("Word found using Inbuild function");
+      return true;
+    }
+    console.log("Word not found using Inbuild function");
+    return false;
+  };
+  findWordUsingInBuild("Hello friend, how are you, doing tOdAy", "tdAy");
+</script>
