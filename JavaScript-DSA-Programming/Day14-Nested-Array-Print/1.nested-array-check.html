@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    input <br />
+    const arr = [ <br />
+    ["a", "b"], <br />
+    ["c", "d"], <br />
+    ["e", "f", ["g", "h", ["i", "j"]], <br />
+    ]; <br />
+    <br />
+    Output <br />
+    ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"]; <br />
+  </body>
+</html>
+<script>
+  let finalArray = [];
+  const checkNestedArray = (arr) => {
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i].length > 1) {
+        nestedFunc(arr[i]);
+      } else {
+        finalArray.push(arr[i]);
+      }
+    }
+  };
+  function nestedFunc(passArr) {
+    for (let j = 0; j < passArr.length; j++) {
+      if (passArr[j].length > 1) {
+        nestedFunc(passArr[j]);
+      } else {
+        finalArray.push(passArr[j]);
+      }
+    }
+  }
+
+  const checkNestedArray2 = (arr) => {
+    for (let i = 0; i < arr.length; i++) {
+      if (Array.isArray(arr[i])) {
+        nestedFunc(arr[i]);
+      } else {
+        finalArray.push(arr[i]);
+      }
+    }
+  };
+
+  checkNestedArray([
+    "a",
+    ["a", "b"],
+    ["c", "d"],
+    ["e", "f", ["g", "h", ["i", "j"]]],
+  ]);
+
+  console.log(finalArray);
+  finalArray = [];
+  checkNestedArray2([
+    "a",
+    ["a", "b"],
+    ["c", "d"],
+    ["e", "f", ["g", "h", ["i", "j"]]],
+  ]);
+  console.log(finalArray);
+</script>
