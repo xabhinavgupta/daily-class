@@ -73,4 +73,59 @@
     return false;
   };
   findWordUsingInBuild("Hello friend, how are you, doing tOdAy", "tdAy");
+
+  //4th way using substring
+  const findWordUsingSubString = (arr, word) => {
+    const splitSentence = arr.replace(/[&\\,.?'']/g, "");
+    if (splitSentence.length <= 0) {
+      console.log("Please pass valid sentence");
+      return;
+    }
+    for (let i = 0; i < splitSentence.length - word.length; i++) {
+      if (splitSentence.substring(i, i + word.length) === word) {
+        console.log("Word found using substring method");
+        return true;
+      }
+    }
+    console.log("Word not found using substring method");
+    return false;
+  };
+  findWordUsingSubString("Hello friend, how are you, doing tOdAy", "you");
+
+  //find a word inside a word
+  const findWordInWord = (arr, word) => {
+    const removeExtra = arr.replace(/[&\\,.?'']/g, "");
+    lowerCaseSent = removeExtra.toLowerCase().split(" ");
+    console.log(lowerCaseSent);
+
+    for (let i = 0; i < lowerCaseSent.length; i++) {
+      for (k = 0; k < lowerCaseSent.length - word.length; i++) {}
+    }
+  };
+  findWordInWord("Hello friend, how are you, doing tOdAy", "you");
+
+  const checkString = (stringTxt, findWord) => {
+    for (let i = 0; i < stringTxt.length; i++) {
+      if (stringTxt[i] == findWord[0]) {
+        let countPass = true;
+        for (let j = 1; j < findWord.length; j++) {
+          console.log(findWord[j], "findWord[j]");
+          console.log(stringTxt[i + j], "stringTxt");
+          if (findWord[j] !== stringTxt[i + j]) {
+            countPass = false;
+            break;
+          }
+        }
+        if (countPass) {
+          return true;
+        }
+      }
+    }
+  };
+
+  let stringTxt = "Hello my name is ankit";
+  let findWord1 = "ank";
+
+  var regult = checkString(stringTxt, findWord1);
+  console.log(regult == undefined ? false : regult);
 </script>
