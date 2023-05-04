@@ -12,6 +12,7 @@
   </body>
 </html>
 <script>
+  //const extra = {...profile}
   const profile = {
     name: "Ankit",
     city: "Morena",
@@ -22,6 +23,15 @@
   };
 
   const profileCopy = { ...profile };
+
+  profileCopy.city = "Vellore";
+  profile.city; // Morena
+  profileCopy.city; // Vellore
+  //deep copy --padh k aana
+
+  profileCopy.details.pincode = 2123234;
+
+  profile.details.pincode; // 2123234
 
   profileCopy.name = "Priyansh";
   profileCopy.details.pincode = 99999;
