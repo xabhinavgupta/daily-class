@@ -22,6 +22,16 @@
     const val = this.toUpperCase().split(cond);
     return val;
   };
+  // const samFunc = () => {
+  //   console.log("Sample function");
+  // };
+
+  Object.prototype.sampleFunction = function (arr) {
+    for (let i = 0; i < arr.length; i++) {
+      console.log(arr[i]);
+    }
+  };
+  const sampleArr = sampleFunction([1, 2, 3]);
 
   const uName = "BaLaJi";
 
