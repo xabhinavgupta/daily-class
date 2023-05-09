@@ -28,6 +28,7 @@
       k: null,
     },
     b: {
+      // key:value
       b: {
         c: 12,
         j: false,
@@ -36,39 +37,54 @@
     },
   };
 
-  const findPath = (obj, path) => {
-    let pathArr = path.split(".");
+  // const findPath = (obj, path) => {
+  //   let pathArr = path.split(".");
 
-    let keys = Object.keys(obj);
-    console.log(keys);
+  //   let keys = Object.keys(obj);
+  //   console.log(keys);
 
-    let values = Object.values(obj);
-    console.log(values);
+  //   let values = Object.values(obj);
+  //   console.log(values);
 
-    // for (let i = 0; i < values.length; i++) {
-    //   if (values[i].length > 1) {
-    //     console.log(Object.keys(object).find((key) => obj[key] === values));
-    //   }
-    // }
-    let savedData;
-    for (let i = 0; i < pathArr.length; i++) {
-      if (obj.pathArr[i] === "undefined") {
+  //   // for (let i = 0; i < values.length; i++) {
+  //   //   if (values[i].length > 1) {
+  //   //     console.log(Object.keys(object).find((key) => obj[key] === values));
+  //   //   }
+  //   // }
+
+  //   let savedData;
+  //   for (let i = 0; i < pathArr.length; i++) {
+  //     if (obj.pathArr[i] === "undefined") {
+  //       return console.log("Path not found");
+  //     } else {
+  //       savedData = obj[pathArr[i]];  //
+  //     }
+  //   }
+  // };
+
+  function getValidPath(obj, path) {
+    const splitPath = path.split(".");
+    let currentObj = obj;
+    for (let i = 0; i < splitPath.length; i++) {
+      if (!currentObj.hasOwnProperty(splitPath[i])) {
+        //b
         return console.log("Path not found");
-      } else {
-        savedData = obj.pathArr[i];
-        if (savedData.pathArr[i]) {
-        }
       }
+      currentObj = currentObj[splitPath[i]]; // obj[a][b]
     }
-  };
 
-  console.log(findPath(obj, "a.b.c")); // 12
-  console.log(findPath(obj, "a.b")); // {c: 12, j: false}
-  console.log(findPath(obj, "a.b.d")); // undefined
-  console.log(findPath(obj, "a.c")); // undefined
-  console.log(findPath(obj, "a.b.c.d")); // undefined
-  console.log(findPath(obj, "a.b.c.d.e")); // undefined
-  console.log(findPath(obj, "a.b.j")); //false
-  console.log(findPath(obj, "a.b.j.k")); //undefined
-  console.log(findPath(obj, "a.k")); //null
+    return console.log("Path found - " + currentObj);
+  }
+
+  // console.log(findPath(obj, "a.b.c")); // 12
+  // console.log(findPath(obj, "a.b")); // {c: 12, j: false}
+  // console.log(findPath(obj, "a.b.d")); // undefined
+  // console.log(findPath(obj, "a.c")); // undefined
+  // console.log(findPath(obj, "a.b.c.d")); // undefined
+  // console.log(findPath(obj, "a.b.c.d.e")); // undefined
+  // console.log(findPath(obj, "a.b.j")); //false
+  // console.log(findPath(obj, "a.b.j.k")); //undefined
+  // console.log(findPath(obj, "a.k")); //null
+
+  getValidPath(obj, "a.b.c");
 </script>
