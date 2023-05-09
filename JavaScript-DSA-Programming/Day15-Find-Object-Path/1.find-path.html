@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // Find path of an object
+
+  /*
+- Write method findPath
+- Should take two params:
+    - object
+    - keys separated by dots as string
+- Return value if it exists at that path inside the object, else return undefined
+*/
+
+  var obj = {
+    a: {
+      b: {
+        c: 12,
+        j: false,
+      },
+      k: null,
+    },
+    b: {
+      b: {
+        c: 12,
+        j: false,
+      },
+      k: null,
+    },
+  };
+
+  const findPath = (obj, path) => {
+    let pathArr = path.split(".");
+
+    let keys = Object.keys(obj);
+    console.log(keys);
+
+    let values = Object.values(obj);
+    console.log(values);
+
+    // for (let i = 0; i < values.length; i++) {
+    //   if (values[i].length > 1) {
+    //     console.log(Object.keys(object).find((key) => obj[key] === values));
+    //   }
+    // }
+    let savedData;
+    for (let i = 0; i < pathArr.length; i++) {
+      if (obj.pathArr[i] === "undefined") {
+        return console.log("Path not found");
+      } else {
+        savedData = obj.pathArr[i];
+        if (savedData.pathArr[i]) {
+        }
+      }
+    }
+  };
+
+  console.log(findPath(obj, "a.b.c")); // 12
+  console.log(findPath(obj, "a.b")); // {c: 12, j: false}
+  console.log(findPath(obj, "a.b.d")); // undefined
+  console.log(findPath(obj, "a.c")); // undefined
+  console.log(findPath(obj, "a.b.c.d")); // undefined
+  console.log(findPath(obj, "a.b.c.d.e")); // undefined
+  console.log(findPath(obj, "a.b.j")); //false
+  console.log(findPath(obj, "a.b.j.k")); //undefined
+  console.log(findPath(obj, "a.k")); //null
+</script>

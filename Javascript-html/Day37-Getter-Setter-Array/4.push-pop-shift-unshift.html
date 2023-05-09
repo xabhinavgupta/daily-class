@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+
+<script>
+  const numbers = [];
+
+  numbers.push(1);
+  numbers.push(4);
+  numbers.push(5);
+  numbers.push(2);
+  numbers.push(3);
+
+  console.log("Numbers: ", numbers);
+
+  let arr = [];
+  arr.push("Abhinav");
+  arr.push(1);
+  arr.push("ThirdElem");
+  arr.key1 = "setting key";
+  arr.push("fifth elem");
+
+  console.log(arr);
+  for (let i = 0; i < arr.length; i++) {
+    console.log(arr[i]);
+  }
+  arr.pop(); // pop removes the last element fromt the array.
+  //console.log(arr);
+  arr.shift(); // deleted the value from the starting - 0th index value will be removed
+
+  arr.unshift(100); // insert value in the starting
+
+  arr.unshift("Adding again");
+
+  console.log(arr);
+</script>
