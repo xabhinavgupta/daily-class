@@ -8,19 +8,13 @@
   </head>
   <body></body>
 </html>
-<script>
-  let arr = [];
-  arr.push("Abhinav");
-  arr.push(1);
-  arr.push("ThirdElem");
-  arr.key1 = "setting key";
-  arr.push("fifth elem");
 
-  console.log(arr);
-  for (let i = 0; i < arr.length; i++) {
-    console.log(arr[i]);
-  }
-  arr.pop();
-  console.log(arr);
-  //arr.slice(2,2);
+<script>
+  const arr1 = [1, 2, 3, 4, 5, 6, 7, 8];
+  // Via delete
+  delete arr1[1]; // It will only remove the value but keep the index
+
+  // Want to delete 5 from the array whose index is 4
+  arr1.splice(4, 3); // start & number of elements
+  console.log("After Splice 4: ", arr1);
 </script>
