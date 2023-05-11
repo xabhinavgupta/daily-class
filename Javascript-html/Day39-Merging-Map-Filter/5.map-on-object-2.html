@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    Map using Object
+  </body>
+</html>
+<script>
+  const obj = [
+    {
+      name: "Abhinav",
+      type: "Developer",
+      position: {
+        higher: "Yes",
+        EmpType: "Permanent",
+      },
+    },
+    {
+      name: "Ankit",
+      type: "Senior Developer",
+      position: {
+        higher: "Yes",
+        EmpType: "Semi-permanent",
+      },
+    },
+  ];
+  const mapObj = obj.map((data) => {
+    data.name = data.name.toLowerCase();
+    data.position.EmpType = data.position.EmpType.concat("-WithFixedSal");
+    data.type = data.type.toUpperCase();
+    return data;
+  });
+
+  console.log(mapObj);
+</script>
