@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    Count the number of occurence
+  </body>
+</html>
+<script>
+  const countchar = (sentence, char) => {
+    //let input = sentence.toLowerCase();
+    let count = 0;
+    let obj = [];
+    for (let i = 0; i < sentence.length; i++) {
+      if (sentence[i] === char) {
+        count++;
+        continue;
+      }
+    }
+    let objPush = {
+      char: char,
+      count: count,
+    };
+    obj.push(objPush);
+    console.log(obj);
+  };
+
+  const countAllchar = (sentence) => {
+    //let input = sentence.toLowerCase();
+    let count = 0;
+    let obj = [];
+    let sentArr = sentence.split("");
+
+    for (let i = 0; i < sentence.length; i++) {
+      if (sentence[i].charCodeAt() >= 97 && sentence[i].charCodeAt() <= 122) {
+        if (sentence[i] === sentence[i + 1]) {
+          count++;
+          continue;
+        }
+        let objPush = {
+          char: sentence[i],
+          count: count,
+        };
+        obj.push(objPush);
+      }
+    }
+
+    console.log(obj);
+  };
+  countchar("aabbbccccccccccfdddccccc", "c");
+  countAllchar("aabbbcAAcccccAccccfdddccccc$$%%");
+</script>

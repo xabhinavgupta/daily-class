@@ -68,12 +68,12 @@
     for (let i = 0; i < splitPath.length; i++) {
       if (!currentObj.hasOwnProperty(splitPath[i])) {
         //b
-        return console.log("Path not found");
+        return console.log("Path not found"); // just return
       }
       currentObj = currentObj[splitPath[i]]; // obj[a][b]
     }
 
-    return console.log("Path found - " + currentObj);
+    return console.log("Path found - " + currentObj); //return currentObj
   }
 
   // console.log(findPath(obj, "a.b.c")); // 12
