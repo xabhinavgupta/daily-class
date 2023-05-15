@@ -85,15 +85,54 @@
       orders: [],
     },
   ];
-
-  const finalOrder = result.map((data) => {
-    data.userId = orders.userId;
-    data.name = orders.name;
-    const orderDetails = result.some(
-      (orderDetails) => data.userId === orders.userId
-    );
+  const orderDetails = users.map((userDetails) => {
+    const getOrders = orders
+      .filter((filterOrder) => users.id === filterOrder.userId)
+      .map((itemDetails) => {
+        const { orderId, productName } = itemDetails;
+        return { orderId, productName };
+      });
+    const currentUser = {};
+    currentUser.userId = userDetails.id;
+    currentUser.name = userDetails.name;
+    currentUser.orderDetails = getOrders;
+    return currentUser;
   });
-  console.log(finalOrder);
+  console.log(orderDetails);
+
+  //way 1
+  // const results = users.map((user) => {
+  //   const ordersNew = orders
+  //     .filter((order) => user.id === order.userId)
+  //     .map((item) => {
+  //       const { orderId, productName } = item;
+  //       return { orderId, productName };
+  //     });
+
+  //   const currentUser = {};
+  //   currentUser.userId = user.id;
+  //   currentUser.name = user.name;
+  //   currentUser.orders = ordersNew;
+  //   return currentUser;
+  // });
+
+  // console.log(results);
+  // let arrResults = [];
+  // const filterUsers = users.map((user) => {
+  //   const filterOrderByUser = orders
+  //   .filter((order) =>user.id = order.userId)
+  //   .map((item) =>{
+  //     const { orderId, productName } = item;
+  //       return { orderId, productName };
+  //     });
+
+  //   const currentUser = {};
+  //   currentUser.userId = user.id;
+  //   currentUser.name = user.name;
+  //   currentUser.orders = ordersNew;
+  //   return currentUser;
+  // });
+  //console.log(arrResults);
 
   // Write a program to form a result array using map & filter or anyting but map is a must
   // Use abobe users & orders array
