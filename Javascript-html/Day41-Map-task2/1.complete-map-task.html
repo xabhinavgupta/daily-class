@@ -85,7 +85,37 @@
       subjects: [],
     },
   ];
+  //using filter n nested map
+  const outputResult = students.map((stud) => {
+    const studentSubject = subjects
+      .filter((subject) => stud.id === subject.studentId)
+      .map((item) => {
+        const { subjectId, subjectName } = item;
+        return { subjectId, subjectName };
+      });
+    const currentStudent = {};
+    currentStudent.studentId = stud.id;
+    currentStudent.name = stud.name;
+    currentStudent.subjects = studentSubject;
+    return currentStudent;
+  });
 
-  // Write a program to form a result array using map & filter or anything, but map is a must
-  // Use the above students & subjects array
+  console.log(outputResult);
+
+  //using map n loop
+  const outputResult2 = students.map((student) => {
+    const subjectsByStudents = [];
+    for (let items of subjects) {
+      const { studentId, subjectId, subjectName } = items;
+      if (items.studentId === student.id) {
+        subjectsByStudents.push({ subjectId, subjectName });
+      }
+    }
+    const currentStudent = {};
+    currentStudent.studentId = student.id;
+    currentStudent.name = student.name;
+    currentStudent.subjects = subjectsByStudents;
+  });
+
+  console.log(outputResult2);
 </script>
