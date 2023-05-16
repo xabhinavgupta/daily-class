@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  var input = [
+    [1, 2, 3, 4],
+    [5, 6, 7, 8],
+    [9, 10, 11, 12],
+    [13, 14, 15, 16],
+  ];
+
+  // Output -> Hint - Sprial in clockwise order
+  //[1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5, 6, 7, 11, 10];
+  //[1, 2, 3, 4, 8, 12, 15, 14, 16, 12, 6, 7, 8, 11, 12, 16]
+  //[1, 2, 3, 4, 8, 12, 15, 14, 16, 12, 8, 6, 7, 8, 11, 11, 12, 16]
+  // [1, 2, 3, 4, 8, 12, 15, 14, 6, 7, 8, 11, 12, 16]
+
+  const results = [];
+  for (let i = 0; i < input.length; i++) {
+    const current = input[i];
+
+    for (let j = i; j < current.length; j++) {
+      console.log("28: ", current[j]);
+      results.push(current[j]);
+    }
+
+    for (let k = i + 1; k < input.length - 1 - i; k++) {
+      //const kVal = input[k][input[k].length - i];
+      const kVal = input[k][input[k].length - 1 - i];
+      console.log("35: ", kVal);
+      results.push(kVal);
+    }
+
+    for (let l = i + 1; l < current.length - 1 - i; l++) {
+      const lVal = input[current.length - 1 - i][current.length - 1 - l];
+      results.push(lVal);
+    }
+
+    /* for (let m = input.length - 1 - i; m > i; m--) {
+      //const kVal = input[k][input[k].length - i];
+      const mVal = input[m][input[m].length - 1 - i];
+      results.push(mVal);
+    } */
+  }
+
+  console.log(results);
+</script>
