@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>JS Bin</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  console.log("Starts");
+
+  setTimeout(() => {
+    console.log("STI: 0 Sec");
+  }, 0);
+
+  setTimeout(() => {
+    console.log("STI: 10 Sec");
+  }, 10000);
+
+  for (let i = 0; i < 10; i++) {
+    console.log("i: ", i);
+  }
+
+  setTimeout(() => {
+    console.log("STI 2: 0 Sec");
+  }, 0);
+
+  console.log("Code ending");
+</script>
