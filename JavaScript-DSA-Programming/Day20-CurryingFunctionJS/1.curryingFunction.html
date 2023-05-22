@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  //this is a recurrying function
+  function addNum(x) {
+    return function (y) {
+      return function (z) {
+        return x + y + z;
+      };
+    };
+  }
+  const result = addNum(4)(5)(6);
+  console.log(result);
+
+  //Write an infinite function currying code
+
+  function curryingFun(a) {
+    return function (b) {
+      if (!b) {
+        return a;
+      }
+      return curryingFun(a + b);
+    };
+  }
+
+  const result2 = curryingFun(2)(3)(4)(5)();
+  console.log(result2);
+
+  //using arrow function
+  const arrowRecurrying = (a) => (b) => b ? arrowRecurrying(a + b) : a;
+  const result3 = arrowRecurrying(2)(3)(4)(5)();
+  console.log(result3);
+</script>
