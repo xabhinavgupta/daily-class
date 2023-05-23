@@ -1,0 +1,147 @@
+<DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+    </head>
+    <body></body>
+  </html>
+  <script>
+    const a = () => {
+      return new Promise((reply, reject) => {
+        reply(true);
+      });
+    };
+
+    const b = () => {
+      return new Promise((reply, reject) => {
+        reply(true);
+      });
+    };
+
+    const c = () => {
+      return new Promise((reply, reject) => {
+        reply(true);
+      });
+    };
+
+    const d = () => {
+      return new Promise((reply, reject) => {
+        reply(true);
+      });
+    };
+
+    // Traditional Way
+    a()
+      .then((data) => {
+        // Success
+        b()
+          .then((bData) => {
+            //Success
+            c()
+              .then((cData) => {
+                //Success
+                d()
+                  .then((dData) => {
+                    // Success
+                  })
+                  .catch((err) => {
+                    // Error
+                  });
+              })
+              .catch((err) => {
+                // Err
+              });
+          })
+          .catch((err) => {
+            // Err
+          });
+      })
+      .catch((err) => {
+        // Error
+      });
+
+    // ES7 Way -> Async Await
+
+    const processPromises = async () => {
+      const aData = await a();
+      const bData = await b();
+      const cData = await c();
+      const dData = await d();
+    };
+
+    const processPromisesV2 = async () => {
+      try {
+        const aData = await a();
+        const bData = await b(aData);
+        const cData = await c(bData);
+        const dData = await d(cData);
+      } catch (err) {
+        console.log("Error: ", err);
+      }
+    };
+
+    const processPromisesV3 = async () => {
+      const aData = await a().catch((err) => null);
+      if (!aData) {
+        return "AError";
+      }
+
+      const bData = await b().catch((err) => null);
+      if (!bData) {
+        return "BError";
+      }
+
+      const cData = await c().catch((err) => null);
+      if (!cData) {
+        return "CError";
+      }
+
+      const dData = await d().catch((err) => null);
+      if (!dData) {
+        return "dError";
+      }
+    };
+  </script>
+
+  <script>
+    const promiseEx3 = async () => {
+      const exmpData1 = await a().catch((err) => null);
+      if (exmpData1) {
+        const exmData2 = await b().catch((err) => err);
+        if (exmData2) {
+          const exmData3 = await c().catch((err) => "Last Async throws err");
+          if (!exmData3) {
+            return "Error at step 3";
+          }
+        }
+        return "Error at step 2";
+      }
+      return "Error at step 1";
+    };
+    const runAPI = async () => {
+      try {
+        const result = await fetch("API_UR:");
+        const parsedJSON = await result.json();
+      } catch (err) {
+        console.log("Err: ", err);
+      }
+    };
+    runAPI();
+  </script>
+
+  <script>
+    // fetch("url")
+    //   .then((data) => data.json())
+    //   .then((data) => console.log(data));
+
+    // const callApi = async () => {
+    //   const result = await fetch("url");
+    //   const parsedJSON = await result.json();
+
+    //   console.log(parsedJSON);
+    // };
+  </script>
+</DOCTYPE>
