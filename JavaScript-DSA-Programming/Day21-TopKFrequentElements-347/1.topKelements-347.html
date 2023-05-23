@@ -15,7 +15,7 @@
       if (objVal.hasOwnProperty(nums[i])) {
         objVal[nums[i]] = objVal[nums[i]] + 1;
       } else {
-        objVal[nums[i]] = 1;
+        objVal[nums[i]] = 1; // "1":1
       }
     }
     console.log(objVal);
@@ -26,6 +26,7 @@
     }
 
     sortable.sort(function (a, b) {
+      //try another way
       return a[1] - b[1];
     });
     console.log(sortable);
