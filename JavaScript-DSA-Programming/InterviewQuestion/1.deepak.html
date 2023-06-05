@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  var player = "Virat";
+  function displayPlayer() {
+    if (player === "Virat") {
+      var player = "VK";
+      console.log(player);
+    }
+    console.log(player);
+  }
+  displayPlayer();
+
+  //Question 2
+  var length = 4;
+  function callback() {
+    console.log(this.length);
+  }
+  const object = {
+    length: 5,
+    method: function () {
+      arguments[0]();
+    },
+  };
+  object.method(callback, 2, 3);
+
+  //Question 3
+  //Find the missing number in array
+  //example - [1,2,3,4,6,7,8,9]
+  function checkMissing(arr) {
+    let j = 0;
+    for (let i = 1; i < arr.length; i++) {
+      if (arr[j] !== arr[i] - 1) {
+        console.log(arr[j] + 1);
+        return;
+      } else {
+        j++;
+      }
+    }
+  }
+  checkMissing([1, 2, 3, 4, 6, 7, 8, 9]);
+</script>
