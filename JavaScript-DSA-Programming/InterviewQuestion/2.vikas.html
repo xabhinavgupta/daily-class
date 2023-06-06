@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  //output
+  console.log(1 && 0);
+  console.log(1 ?? 2);
+  console.log(0 ?? 2);
+  console.log([1, 2, 3, 4, 5].fill(0, 1, 3));
+  //ques 2
+  const items = [1, 2, 3, 4, 5];
+  const [, , ...restitem] = items;
+  console.log(restitem);
+
+  //ques 3
+  console.log(1 || 2 || 3);
+
+  //Write a logic to output a data
+  const profile = [
+    {
+      id: 1,
+      name: "Ashwini",
+    },
+    {
+      id: 10,
+      name: "Vishal",
+    },
+  ];
+
+  const orders = [
+    {
+      userId: 1,
+      productId: 101,
+      productName: "Samsung Galaxy s2",
+    },
+    {
+      userId: 1,
+      productId: 102,
+      productName: "Samsung Galaxy Watch",
+    },
+    {
+      userId: 10,
+      productId: 103,
+      productName: "Samsung LED TV",
+    },
+  ];
+  // Output Result
+
+  const finalDetails = [
+    {
+      userId: 1,
+      name: "Ashwini",
+      orders: [
+        {
+          productId: 101,
+          productName: "Samsung Galaxy s2",
+        },
+        {
+          productId: 102,
+          productName: "Samsung Galaxy Watch",
+        },
+      ],
+    },
+    {
+      userId: 10,
+      name: "Vishal",
+      orders: [
+        {
+          productId: 103,
+          productName: "Samsung LED TV",
+        },
+      ],
+    },
+  ];
+
+  //Ques 4
+  let arr = [];
+  console.log(arr.push(1, 2, 3).length);
+
+  //Ques 5 - nested de-structing
+  let user = {
+    age: 100,
+    fullName: {
+      first: "Priya",
+      last: "Bagde",
+    },
+  };
+</script>
